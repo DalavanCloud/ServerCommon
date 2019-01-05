@@ -14,7 +14,7 @@ namespace NuGet.Services.FeatureFlags
         /// <param name="user">The user whose status should be determined.</param>
         /// <param name="default">The value to return if the status of the flight is unknown.</param>
         /// <returns>Whether the flight is enabled for this user.</returns>
-        bool Enabled(string flight, User user, bool @default);
+        bool IsEnabled(string flight, User user, bool @default);
 
         /// <summary>
         /// Get whether a flight is enabled for a user. This method does not throw.
@@ -22,7 +22,7 @@ namespace NuGet.Services.FeatureFlags
         /// <param name="flight">The unique identifier for this flight.</param>
         /// <param name="user">The user whose status should be determined.</param>
         /// <returns>Whether the flight is enabled for this user.</returns>
-        FlightResult Enabled(string flight, User user);
+        FlightResult IsEnabled(string flight, User user);
     }
 
     public enum FlightResult

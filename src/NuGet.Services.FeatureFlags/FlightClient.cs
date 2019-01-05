@@ -22,9 +22,9 @@ namespace NuGet.Services.FeatureFlags
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public bool Enabled(string flightName, User user, bool @default)
+        public bool IsEnabled(string flightName, User user, bool @default)
         {
-            var result = Enabled(flightName, user);
+            var result = IsEnabled(flightName, user);
 
             switch (result)
             {
@@ -40,7 +40,7 @@ namespace NuGet.Services.FeatureFlags
             }
         }
 
-        public FlightResult Enabled(string flightName, User user)
+        public FlightResult IsEnabled(string flightName, User user)
         {
             var latest = _flags.GetLatestFlags();
             if (latest.Status != LatestFlagsStatus.Ok)
